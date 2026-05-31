@@ -736,38 +736,51 @@ body {
   <h2 class="sec-t f-in">不足与展望</h2>
   <div class="g-line f-in"></div>
 
-  <div class="txt f-in" style="max-width:800px;margin:0 auto 2rem;">
-    <p>本实验存在诸多不足，未来研究可在以下方向进行拓展与深化：</p>
+  <!-- 不足 -->
+  <div class="txt f-in" style="max-width:800px;margin:0 auto 1.5rem;">
+    <p style="color:var(--red);font-weight:600;font-size:.9rem;">研究不足</p>
+  </div>
+
+  <div class="g2" style="margin-bottom:2.5rem;">
+    <div class="card f-in" style="transition-delay:.1s;border-left:3px solid var(--red);">
+      <h3 style="color:var(--red);font-size:.95rem;">样本量与覆盖范围有限</h3>
+      <p style="font-size:.82rem;line-height:1.8;">本实验仅测评了6个模型、1个动词语义场，且仅采用单一任务类型，难以全面反映模型的整体能力。</p>
+    </div>
+    <div class="card f-in" style="transition-delay:.2s;border-left:3px solid var(--red);">
+      <h3 style="color:var(--red);font-size:.95rem;">实验控制有待加强</h3>
+      <p style="font-size:.82rem;line-height:1.8;">提示词控制不够严格，且缺乏新鲜人类被试对照实验，结论的外部效度有待进一步验证。</p>
+    </div>
+  </div>
+
+  <!-- 展望 -->
+  <div class="txt f-in" style="max-width:800px;margin:0 auto 1.5rem;">
+    <p style="color:var(--green);font-weight:600;font-size:.9rem;">未来展望</p>
   </div>
 
   <div class="g3" style="margin-bottom:2rem;">
-    <div class="card f-in" style="transition-delay:.1s;border-left:3px solid var(--red);">
-      <h3 style="color:var(--red);">不足一：模型数量有限</h3>
-      <p>本实验仅测评了6个模型（两组各3个），样本量较小，难以全面反映不同类型、不同参数规模模型的整体表现。未来可拓展至更多模型系列（如Gemma、Llama、GLM等），以增强结论的普适性。</p>
+    <div class="card f-in" style="transition-delay:.1s;border-left:3px solid var(--green);">
+      <h3 style="color:var(--green);font-size:.95rem;">拓展模型与动词覆盖</h3>
+      <p style="font-size:.82rem;line-height:1.8;">纳入更多模型系列（Gemma、Llama、GLM等）与更广泛的动词类别（抓取、搬运等），验证结论的普适性与跨语义场迁移性。</p>
     </div>
-    <div class="card f-in" style="transition-delay:.2s;border-left:3px solid var(--red);">
-      <h3 style="color:var(--red);">不足二：提示词控制不够严格</h3>
-      <p>目前仅对top_p、max_tokens、thinking模式和temperature进行了鲁棒性检验，提示词的措辞、角色设定、输出格式约束等变量尚未进行系统性控制。未来可采用更严格的提示词工程方法，减少提示词敏感性对结果的影响。</p>
+    <div class="card f-in" style="transition-delay:.2s;border-left:3px solid var(--green);">
+      <h3 style="color:var(--green);font-size:.95rem;">增加人类被试对照</h3>
+      <p style="font-size:.82rem;line-height:1.8;">在相同实验条件下招募新的人类被试进行对照实验，建立更精确的人类基准，量化模型与人类之间的真实差距。</p>
     </div>
-    <div class="card f-in" style="transition-delay:.3s;border-left:3px solid var(--red);">
-      <h3 style="color:var(--red);">不足三：动词覆盖范围窄</h3>
-      <p>本实验仅测评了"投掷"类语义场的6个动词，无法判断模型对其他语义场（如"抓取""搬运"等）的普遍理解能力。未来可拓展动词类别，验证结论的跨语义场迁移性。</p>
+    <div class="card f-in" style="transition-delay:.3s;border-left:3px solid var(--green);">
+      <h3 style="color:var(--green);font-size:.95rem;">丰富任务类型</h3>
+      <p style="font-size:.82rem;line-height:1.8;">引入可逆性测评（动词↔动作描述双向映射）、约束推理等更多任务，从多角度验证模型的动作语义理解深度。</p>
     </div>
   </div>
 
   <div class="g2" style="margin-bottom:2rem;">
-    <div class="card f-in" style="transition-delay:.4s;border-left:3px solid var(--red);">
-      <h3 style="color:var(--red);">不足四：缺乏人类被试对照</h3>
-      <p>本实验仅以Gao (2016) 的人类基准数据作为参考，未在相同实验条件下招募新的人类被试进行对照实验。未来可增加人类被试数据采集，以更精确地评估模型与人类之间的差距。</p>
+    <div class="card f-in" style="transition-delay:.4s;border-left:3px solid var(--green);">
+      <h3 style="color:var(--green);font-size:.95rem;">严格提示词工程</h3>
+      <p style="font-size:.82rem;line-height:1.8;">系统性控制提示词的措辞、角色设定、输出格式等变量，采用更严格的提示词工程方法，减少提示词敏感性对结果的影响。</p>
     </div>
-    <div class="card f-in" style="transition-delay:.5s;border-left:3px solid var(--red);">
-      <h3 style="color:var(--red);">不足五：任务类型单一</h3>
-      <p>本实验仅采用了动作编码测评这一种任务类型，无法全面评估模型的动作语义理解深度。未来可增加可逆性测评（动词↔动作描述双向映射）、约束推理等更多任务类型，从多角度验证模型的表征能力。</p>
+    <div class="card f-in" style="transition-delay:.5s;border-left:3px solid var(--green);">
+      <h3 style="color:var(--green);font-size:.95rem;">发展针对性训练策略</h3>
+      <p style="font-size:.82rem;line-height:1.8;">基于本研究发现的模型局限，探索针对性的训练策略，提升VLA模型在细粒度动作语义理解方面的能力，推动人机交互的安全性与一致性。</p>
     </div>
-  </div>
-
-  <div class="qb f-in" style="max-width:800px;margin:0 auto;">
-    <strong>展望</strong>：未来研究可在更大规模模型集合、更严格提示词控制、更广泛动词覆盖、增加人类被试对照、以及提升任务类型（如可逆性测评）的基础上，进一步验证本研究的核心发现，并探索针对性训练策略以提升VLA模型的细粒度动作语义理解能力。
   </div>
 </section>
 
