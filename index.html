@@ -680,40 +680,19 @@ body {
   <p class="sec-d f-in">主要研究发现</p>
 
   <div class="f-in" style="max-width:800px;margin:0 auto;">
-    <div class="card" style="border-left:4px solid var(--red);margin-bottom:2rem;">
-      <h3 style="color:var(--red);font-size:1.1rem;margin-bottom:.8rem;">发现一：VLA模型表征能力有限</h3>
-      <p style="font-size:.88rem;line-height:2;">在本实验条件下，所测量的VLA模型及其基座模型在产出与人类对齐的throw-verb近同义词区分结构化表征方面表现较为有限，整体能力有待提升。模型在五维参数空间中的表征与人类基准之间仍存在一定差距。</p>
+    <div class="card" style="border-left:4px solid var(--red);margin-bottom:1.5rem;">
+      <h3 style="color:var(--red);font-size:1.05rem;margin-bottom:.6rem;">发现一：VLA模型表征能力有限</h3>
+      <p style="font-size:.85rem;line-height:1.9;">在本实验条件下，所测量的VLA模型及其基座模型在产出与人类对齐的throw-verb近同义词区分结构化表征方面表现较为有限，整体能力有待提升。模型在五维参数空间中的表征与人类基准之间仍存在一定差距。</p>
     </div>
-  </div>
-</section>
 
-<div class="divider"></div>
-
-<section class="sec" id="sec-finding2" style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;">
-  <div class="f-in" style="max-width:800px;margin:0 auto;">
-    <div class="card" style="border-left:4px solid var(--green);margin-bottom:2rem;">
-      <h3 style="color:var(--green);font-size:1.1rem;margin-bottom:.8rem;">发现二：VLA相比LLM基座略有提升</h3>
-      <p style="font-size:.88rem;line-height:2;">初步实验结果显示，VLA模型与LLM基座相比，RSA得分有一定程度的提升。尽管LLM基座是VLA模型推理能力的主要来源，但针对动作参数和视觉材料的训练（即使没有大量语言材料输入）可能有助于提升模型对动词的语义理解，且这种提升或许可以被认知语言学理论所预测。</p>
+    <div class="card" style="border-left:4px solid var(--green);margin-bottom:1.5rem;">
+      <h3 style="color:var(--green);font-size:1.05rem;margin-bottom:.6rem;">发现二：VLA相比LLM基座略有提升</h3>
+      <p style="font-size:.85rem;line-height:1.9;">初步实验结果显示，VLA模型与LLM基座相比，RSA得分有一定程度的提升。尽管LLM基座是VLA模型推理能力的主要来源，但针对动作参数和视觉材料的训练（即使没有大量语言材料输入）可能有助于提升模型对动词的语义理解，且这种提升或许可以被认知语言学理论所预测。</p>
     </div>
-  </div>
 
-  <!-- RSA Heatmap -->
-  <div class="f-in" style="max-width:800px;margin:2rem auto 0;">
-    <h4 style="color:var(--blue);font-size:.9rem;text-align:center;margin-bottom:1rem;">RSA 热力图（英文条件）</h4>
-    <div class="cw" id="rsa-heatmap"></div>
-    <p class="f-in" style="text-align:center;font-size:.72rem;color:var(--text-muted);margin-top:.5rem;">
-      数值越接近1表示模型与人类表征结构越相似
-    </p>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<section class="sec" id="sec-finding3" style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;">
-  <div class="f-in" style="max-width:800px;margin:0 auto;">
-    <div class="card" style="border-left:4px solid var(--blue);margin-bottom:2rem;">
-      <h3 style="color:var(--blue);font-size:1.1rem;margin-bottom:.8rem;">发现三：语义理解可能仍主要依赖LLM基座</h3>
-      <p style="font-size:.88rem;line-height:2;">本实验结果初步表明，LLM在动词区分显著性等层面可能仍然强于VLA模型，这或许说明语义信息的理解和记忆在一定程度上仍然依赖于LLM基座。这一发现暗示，未来关于人机交互的训练可能仍需加强语言层面的训练，而不能仅依赖视觉-动作模态的对齐。当然，这一结论仍需更大规模的实验进一步验证。</p>
+    <div class="card" style="border-left:4px solid var(--blue);">
+      <h3 style="color:var(--blue);font-size:1.05rem;margin-bottom:.6rem;">发现三：语义理解可能仍主要依赖LLM基座</h3>
+      <p style="font-size:.85rem;line-height:1.9;">本实验结果初步表明，LLM在动词区分显著性等层面可能仍然强于VLA模型，这或许说明语义信息的理解和记忆在一定程度上仍然依赖于LLM基座。这一发现暗示，未来关于人机交互的训练可能仍需加强语言层面的训练，而不能仅依赖视觉-动作模态的对齐。当然，这一结论仍需更大规模的实验进一步验证。</p>
     </div>
   </div>
 </section>
@@ -934,81 +913,7 @@ t1.forEach(r => {
   });
 })();
 
-// ===== RSA Heatmap =====
-(function(){
-  const models = ['Mimo-7B', 'Mimo-VL', 'Mimo-emb', 'Qwen2.5', 'Qwen2.5-VL', 'RoboBrain'];
-  const data = [
-    [0.12, -0.28, 0.08, 0.42, 0.76],
-    [-0.28, 0.32, -0.14, -0.32, 0.43],
-    [0.08, -0.14, 0.31, 0.46, 0.42],
-    [0.42, -0.32, 0.46, -0.14, 0.31],
-    [0.76, 0.43, 0.42, 0.31, 0.76]
-  ];
-  
-  const svg = d3.select('#rsa-heatmap').append('svg').attr('viewBox','0 0 500 400').attr('width','100%');
-  const margin = {top: 50, right: 20, bottom: 80, left: 80};
-  const width = 500 - margin.left - margin.right;
-  const height = 400 - margin.top - margin.bottom;
-  const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
-  
-  const x = d3.scaleBand().range([0, width]).domain(d3.range(5)).padding(0.05);
-  const y = d3.scaleBand().range([0, height]).domain(d3.range(5)).padding(0.05);
-  const color = d3.scaleSequential(d3.interpolateRdBu).domain([0.8, -0.4]);
-  
-  // Draw cells
-  for(let i = 0; i < 5; i++) {
-    for(let j = 0; j < 5; j++) {
-      g.append('rect')
-        .attr('x', x(j))
-        .attr('y', y(i))
-        .attr('width', x.bandwidth())
-        .attr('height', y.bandwidth())
-        .attr('fill', color(data[i][j]))
-        .attr('rx', 3);
-      g.append('text')
-        .attr('x', x(j) + x.bandwidth()/2)
-        .attr('y', y(i) + y.bandwidth()/2)
-        .attr('dy', '.35em')
-        .attr('text-anchor', 'middle')
-        .attr('fill', Math.abs(data[i][j]) > 0.3 ? 'white' : '#333')
-        .attr('font-size', '11px')
-        .text(data[i][j].toFixed(2));
-    }
-  }
-  
-  // Labels
-  const labels = ['Mimo-7B', 'Mimo-emb', 'Qwen2.5', 'Qwen2.5-VL', 'RoboBrain'];
-  labels.forEach((l, i) => {
-    g.append('text').attr('x', -10).attr('y', y(i) + y.bandwidth()/2)
-      .attr('dy', '.35em').attr('text-anchor', 'end')
-      .attr('fill', '#4A5568').attr('font-size', '11px').text(l);
-    g.append('text').attr('x', x(i) + x.bandwidth()/2).attr('y', height + 20)
-      .attr('text-anchor', 'middle').attr('fill', '#4A5568').attr('font-size', '11px')
-      .attr('transform', `rotate(-35, ${x(i) + x.bandwidth()/2}, ${height + 20})`).text(l);
-  });
-  
-  // Title
-  svg.append('text').attr('x', 250).attr('y', 30).attr('text-anchor', 'middle')
-    .attr('fill', '#003D6B').attr('font-size', '13px').attr('font-weight', '600')
-    .text('模型间 RSA 相似性矩阵');
-  
-  // Legend
-  const legendWidth = 200, legendHeight = 15;
-  const legend = svg.append('g').attr('transform', `translate(${(500-legendWidth)/2}, ${height + margin.top + 50})`);
-  const legendScale = d3.scaleLinear().domain([-0.4, 0.8]).range([0, legendWidth]);
-  const legendAxis = d3.axisBottom(legendScale).ticks(5).tickSize(legendHeight);
-  
-  const defs = svg.append('defs');
-  const linearGradient = defs.append('linearGradient').attr('id', 'legend-gradient');
-  linearGradient.append('stop').attr('offset', '0%').attr('stop-color', color(-0.4));
-  linearGradient.append('stop').attr('offset', '100%').attr('stop-color', color(0.8));
-  
-  legend.append('rect').attr('width', legendWidth).attr('height', legendHeight)
-    .attr('fill', 'url(#legend-gradient)').attr('rx', 3);
-  legend.append('g').attr('transform', `translate(0, ${legendHeight})`).call(legendAxis)
-    .selectAll('text').attr('fill', '#666').attr('font-size', '10px');
-  legend.selectAll('.domain, .tick line').attr('stroke', '#ccc');
-})();
+
 </script>
 </body>
 </html>
